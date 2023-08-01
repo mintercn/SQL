@@ -1,0 +1,50 @@
+--Create a grocery store database
+
+/**Storefront:
+Shirts women (10), (15), m
+Shirts men (15)
+Long sleeve shirts (5)
+Short sleeve shirts (12)
+Pants women (11)
+Pants men (100)
+Long pants (52)
+Short pants (18)
+Solid shirts (24)
+Patterned shirts (17)
+Solid pants (15)
+Patterned pants (40)
+Socks (200)
+Socks white (50)
+Socks black (50)
+**/
+
+CREATE TABLE storefront (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, price INTEGER, size INTEGER);
+
+INSERT INTO storefront VALUES (1, "Shirts women", 10, 15, "M");
+INSERT INTO storefront VALUES (2, "Shirts men", 15, 20, "S");
+INSERT INTO storefront VALUES (3, "Long sleeve shirts", 5, 25, "L");
+INSERT INTO storefront VALUES (4, "Short sleeve shirts", 12, 10, "S");
+INSERT INTO storefront VALUES (5, "Pants women", 11, 30, "L");
+INSERT INTO storefront VALUES (6, "Pants men", 100, 35, "XL");
+INSERT INTO storefront VALUES (7, "Long pants", 52, 45, "L");
+INSERT INTO storefront VALUES (8, "Short pants", 18, 40, "M");
+INSERT INTO storefront VALUES (9, "Solid shirts", 24, 30, "S");
+INSERT INTO storefront VALUES (10, "Patterned shirts", 17, 32, "XL");
+INSERT INTO storefront VALUES (11, "Solid pants", 15, 42, "L");
+INSERT INTO storefront VALUES (12, "Patterned pants", 40, 55, "M");
+INSERT INTO storefront VALUES (13, "Socks", 200, 15, "1 SIZE FITS ALL");
+INSERT INTO storefront VALUES (14, "Socks white", 50, 12, "S");
+INSERT INTO storefront VALUES (15, "Socks black", 50, 15, "M");
+
+--display the database ordered by price.
+SELECT * FROM storefront ORDER BY price desc;
+
+--what is the avg price of items in the bulk section? 
+SELECT AVG(price) "avg bulk item price" FROM storefront WHERE section= "bulk";
+
+--what are the most 5 popular items?
+SELECT item, price, popularity FROM storefront ORDER BY popularity desc limit 5;
+
+
+
+SELECT SUM(price) FROM storefront;
